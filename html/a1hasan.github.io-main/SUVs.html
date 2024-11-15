@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Horizontal Parallelogram Buttons</title>
+    <style>
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px) skewY(-20deg); /* Start slightly lower */
+                opacity: 0%; /* Start invisible */
+            }
+            100% {
+                transform: translateY(0) skewY(-20deg); /* End in original position */
+                opacity: 1; /* Fully visible */
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            background-color: #282c34;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px; /* Set perspective for 3D effect */
+        }
+        nav {
+            position: absolute; /* Fixed position for the menu */
+            top: 10px; /* Position it at the top */
+            left: 10px; /* Position it on the left */
+            z-index: 2; /* Keep it above the buttons */
+        }
+        .menu-icon {
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            z-index: 3; /* Ensure the hamburger icon is above the menu */
+        }
+        .bar {
+            width: 35px;
+            height: 5px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+        .button-container {
+            display: flex;
+            gap: 0; /* No gap between buttons */
+            transform-style: preserve-3d;
+            transform: rotateX(10deg); /* Add a slight 3D tilt to the whole set */
+            position: relative; /* Set position relative for proper layout */
+        }
+        .button {
+            width: 100px; /* Width of the button */
+            height: 200px; /* Height of the button */
+            color: rgb(244, 245, 248);
+            text-shadow: rgb(10, 111, 206) 2px 1px;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease, background-color 0.4s ease;
+            border-radius: 10px;
+            animation: slideUp 0.8s;
+            overflow: hidden; /* Ensures the pseudo-element stays within the button */
+            transform: skewY(-20deg);
+             /* Create a vertical parallelogram shape */
+        }
+        .button::before {
+            
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: filter 0.4s ease;
+            z-index: 0; /* Ensure the background image is behind the text */
+            background-image: inherit; /* Inherit the background image from the button's inline style */
+        }
+        .button:hover::before {
+            filter: blur(5px); /* Apply blur to the background image on hover */
+        }
+        .button:hover {
+            transform: translate(-20px, 20px) translateZ(50px) skewY(-20deg); /* Move southwest */
+            background-color: #f49015;
+            filter: brightness(1.2) hue-rotate(10deg) blur(0.1px);
+        }
+        .button span {
+            position: relative;
+            z-index: 1; /* Keep the text above the blurred background */
+            transform: skewY(20deg); /* Reverse skew to make text upright */
+        }
+        /* Side menu styles */
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Offscreen initially */
+            height: 100%;
+            width: 250px;
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            transition: left 0.5s ease; /* Smooth transition */
+            z-index: 1; /* Ensure the menu is below the hamburger icon */
+        }
+        .menu li {
+            margin: 20px 0;
+        }
+        .menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            background-color: #444;
+            text-align: center;
+            font-size: 18px;
+        }
+        /* Menu visible when "show" is applied */
+        .menu.show {
+            left: 0; /* Bring menu into view */
+        }
+        /* Animation delay for buttons */
+        .button:nth-child(1) {
+            animation-delay: 0.2s; /* First button appears first */
+        }
+        .button:nth-child(2) {
+            animation-delay: 0.6s; /* Second button appears second */
+        }
+        .button:nth-child(3) {
+            animation-delay: 1s; /* Third button appears third */
+        }
+        .button:nth-child(4) {
+            animation-delay: 1.4s; /* Third button appears third */
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-icon" id="menu-icon">
+            <!-- Hamburger icon (3 bars) -->
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="button-container">
+        <button class="button" style="background-image: url(2023-BMW-X1-M-Sport-001.jpg);"><span><a href="xxxxx">X1</a></span></button>
+        <button class="button" style="background-image: url(photo-1717082842911-9e55aeaf80cb.jpeg);"><span><a href="xxxx">X3</a></span></button>
+        <button class="button" style="background-image: url(6d35916549b4c5c435bff7b5e279dd32.jpg);"><span><a href="xxxx">X5</a></span></button>
+        <button class="button" style="background-image: url(a959545e91a29ec2edfbb8f0159fac35.jpeg);"><span><a href="xxxx">X7</a></span></button>
+
+    </div>
+
+    <script>
+        // Get the elements
+        const menuIcon = document.getElementById('menu-icon');
+        const menu = document.getElementById('menu');
+
+        // Add click event listener to the menu icon
+        menuIcon.addEventListener('click', function() {
+            // Toggle the 'show' class on the menu
+            menu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

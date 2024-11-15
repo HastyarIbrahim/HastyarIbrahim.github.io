@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/3series.css">
+    <title>Car Selection</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/bmwlogo.png" alt="BMW Logo" class="logo-img">
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle menu">
+                &#9776; 
+            </button>
+            <ul class="nav-links">
+                <li><a href="a1hasan.github.io-main/index.html">Home</a></li>
+                <li><a href="5series.html">About Us</a></li>
+                <li><a href="about.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="back-container">
+            <a href="javascript:history.back()" class="back-button">← Back</a>
+        </div>
+    </header>
+    <main>
+        <section class="car-list">
+            <article class="car-card">
+                <img src="images/320i.png" alt="BMW 320i">
+                <h2>BMW 320i</h2>
+                <p>Year: 2024</p>
+                <p>Price: $41,500</p>
+                <a href="">See Details</a>
+            </article>
+            <article class="car-card">
+                <img src="images/320d.png" alt="BMW 320d">
+                <h2>BMW 320d</h2>
+                <p>Year: 2024</p>
+                <p>Price: $45,000</p>
+                <a href="">See Details</a>
+            </article>
+            <article class="car-card">
+                <img src="images/330i.png" alt="BMW 330i">
+                <h2>BMW 330i</h2>
+                <p>Year: 2024</p>
+                <p>Price: $45,800</p>
+                <a href="">See Details</a>
+            </article>
+            <article class="car-card">
+                <img src="images/330e.png" alt="BMW 330e">
+                <h2>BMW 330e</h2>
+                <p>Year: 2024</p>
+                <p>Price: $47,300</p>
+                <a href="">See Details</a>
+            </article>
+            <article class="car-card">
+                <img style="padding: 0 0 20px;" src="images/330d.png" alt="BMW 330d">
+                <h2>BMW 330d</h2>
+                <p>Year: 2024</p>
+                <p>Price: $47,000</p>
+                <a href="">See Details</a>
+            </article>
+            <article class="car-card">
+                <img src="images/340i.png" alt="BMW 340i">
+                <h2>BMW 340i</h2>
+                <p>Year: 2024</p>
+                <p>Price: $51,000</p>
+                <a href="">See Details</a>
+            </article>
+            
+            
+        </section>
+    </main>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+    
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+
+    
+</body>
+</html>
