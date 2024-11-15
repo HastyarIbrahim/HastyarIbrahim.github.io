@@ -1,0 +1,71 @@
+header{
+background-color: brown;
+padding: 20px;
+margin: 0;
+text-align: center;
+}
+h1{
+    margin: 0%;
+}
+nav{
+    text-align: center;
+    background-color: black;
+    padding: 20px;
+}
+a{padding: 10px;
+    text-decoration: none;
+}
+.hero{
+  
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: rgb(85, 49, 13);
+    text-align: center;
+    padding: 100px 20px;
+    
+
+}
+.btn{
+    background-color: yellow;
+    text-decoration: none;
+}
+.projects {
+    
+    display: flex;
+    background-color: gray;
+}
+body{
+    margin: 0%;
+}
+.card{
+    padding: 10px;
+    
+}
+.card img{
+max-width: 100%;
+border-radius: 5px;
+}
+footer{
+    background-color: rgb(233, 164, 164);
+padding: 20px;
+margin: 0;
+text-align: center;
+}
+img{
+    width: 40%;
+    height: auto;
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .projects {
+        flex-direction: column;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+}
