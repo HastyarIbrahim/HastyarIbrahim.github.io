@@ -28,7 +28,7 @@ header{
 .logo-img{
     height: 50px;
     width: auto;
-    gap: 1.5rem;
+    padding: 10px 0px 0px 0px;
 }
 
 .nav-links{
