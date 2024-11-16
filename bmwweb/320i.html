@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/320i.css">
+    <title>BMW 320i - Details</title>
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        <a href="../bmwweb/a1hasan.github.io-main/index.html" class="logo"> 
+            <img src="images/bmwlogo.png" alt="BMW Logo" class="logo-img"> 
+        </a>
+        <button class="menu-toggle" aria-label="toggle menu">
+            &#9776;
+        </button>
+        <ul class="nav-links">
+            <li><a href="a1hasan.github.io-main/index.html">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+       
+    </nav>
+    <div class="back-container">
+        <a href="javascript:history.back()" class="back-button">← Back</a>
+    </div>
+   </header>
+
+   <main>
+    <section class="car-detail">
+        <h1>BMW 320i</h1>
+        <div class="car-main-image">
+            <img src="images/320i.png" alt="BMW 320i">
+        </div>
+        <div class="car-specifications">
+            <h2>Specifications</h2>
+            <ul>
+                <li><strong>Year:</strong> 2024</li>
+                <li><strong>Engine:</strong> 2.0L Turbocharged I4</li>
+                <li><strong>Horsepower:</strong> 255 hp</li>
+                <li><strong>Torque:</strong> 296 lb-ft</li>
+                <li><strong>Fuel Efficiency:</strong> 26 mpg city / 35 mpg highway</li>
+                <li><strong>Price:</strong> $41,500</li>
+            </ul>
+        </div>
+        <div class="car-gallery">
+            <h3>Gallery</h3>
+            <div class="gallery-images">
+              <img src="images/320i-sideview.png" alt="Side View" onclick="openModal(this)">
+              <img src="images/320i-frontview.png" alt="Front View" onclick="openModal(this)">
+              <img src="images/320i-interior.png" alt="Interior View" onclick="openModal(this)">
+            </div>
+          </div>
+          
+         
+          <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <div id="caption"></div>
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
+        </div>
+          
+        <div class="car-description">
+            <h2>Description</h2>
+            <p>The BMW 320i is a luxurious sedan with a perfect blend of performance and comfort. 
+                Featuring advanced technology, premium materials, and the iconic BMW driving dynamics, 
+                the 320i is a class leader in every sense.
+            </p>
+        </div>
+    </section>
+   </main>
+
+   <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>About Us</h4>
+            <p>Your trusted BMW car selection platform, delivering the latest models and detailed information.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="a1hasan.github.io-main/index.html">Home</a></li>
+                <li><a href="5series.html">About Us</a></li>
+                <li><a href="contact.html">Services</a></li>
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="images/twitter-x.svg" alt="Twitter"></a>
+                <a href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 BMW Selection Platform. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+
+
+<script>
+    let currentIndex = 0;
+    const images = [
+        'images/320i-frontview.png',
+        'images/320i-sideview.png',
+        'images/320i-interior.png'
+    ];
+
+    function openModal(image) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const caption = document.getElementById('caption');
+
+        modal.style.display = 'block';
+        modalImage.src = image.src;
+        caption.textContent = image.alt;
+
+        // Store the index of the current image
+        currentIndex = images.indexOf(image.src);
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').style.display = 'none';
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1; // Go to the last image
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0; // Go to the first image
+        }
+
+        const modalImage = document.getElementById('modalImage');
+        const caption = document.getElementById('caption');
+        modalImage.src = images[currentIndex];
+        caption.textContent = modalImage.alt;
+    }
+</script>
+   
+    
+</body>
+</html>
